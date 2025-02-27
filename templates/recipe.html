@@ -10,9 +10,9 @@
 </head>
 <body>
 	{% block content %}
-    <p>{{name}}:</p>
-    <ol>{% for ingredient in ingredients %}
-		<li>{{ingredient.name}} - {{ingredient.quantity}}</li>
+    <p>{{recipe.name}}:</p>
+    <ol>{% for ingredient in recipe.ingredients.all %}
+		<li>{{ingredient.ingredient.name}} - {{ingredient.quantity}}</li>
     {% endfor %}</ol>
 	{% endblock %}
 </body>
