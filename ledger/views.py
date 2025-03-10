@@ -13,7 +13,7 @@ class RecipeListView(ListView):
 
 class RecipeDetailView(LoginRequiredMixin, DetailView):
     model = Recipe
-    template_name = 'recipe.html'
+    template_name = 'ledger/recipe.html'
     redirect_field_name = 'URL'
 
 
@@ -25,4 +25,4 @@ def recipe_list(request):
 
 def recipe(request, pk):
     ctx = {"recipe": Recipe.objects.get(pk=pk)}
-    return render(request, 'recipe.html', ctx)
+    return render(request, 'ledger/recipe.html', ctx)
