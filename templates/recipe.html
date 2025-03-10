@@ -1,25 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1"/>
-	<title>{% block title %}Recipe Book{% endblock %}</title>
-	<h1>Recipe Book - {% block header %}{{recipe.name}}{% endblock %}</h1>
-	{% if request.user.is_authenticated %}
-		<p>Welcome {{request.user.username}} </p>
-		<form method="POST" action ="{% url 'logout' %}">
-			{% csrf_token %}
-			<button type="submit">Logout</button>
-		</form>
-	{% else %}
-		<a href="{% url 'login' %}">Login</a>
-	{% endif %}
-	<hr>
-	{% block styles %}
-	{% endblock %}
+{% extends 'base.html' %}
+	{% block title %}Recipe Book{% endblock %}
+	{% block header %}{{recipe.name}}{% endblock %}
+
 	
-</head>
-<body>
+
 	{% block content %}
     <p>{{recipe.name}}:</p>
 	<p>Author: {{recipe.author}}</p>
@@ -27,5 +11,3 @@
 		<li>{{ingredient.ingredient.name}} - {{ingredient.quantity}}</li>
     {% endfor %}</ol>
 	{% endblock %}
-</body>
-</html>
