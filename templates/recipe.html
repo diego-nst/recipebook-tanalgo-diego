@@ -4,9 +4,20 @@
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 	<title>{% block title %}Recipe Book{% endblock %}</title>
+	<h1>Recipe Book - {% block header %}{{recipe.name}}{% endblock %}</h1>
+	{% if request.user.is_authenticated %}
+		<p>Welcome {{request.user.username}} </p>
+		<form method="POST" action ="{% url 'logout' %}">
+			{% csrf_token %}
+			<button type="submit">Logout</button>
+		</form>
+	{% else %}
+		<a href="{% url 'login' %}">Login</a>
+	{% endif %}
+	<hr>
 	{% block styles %}
 	{% endblock %}
-    <h1>Recipe Book</h1>
+	
 </head>
 <body>
 	{% block content %}

@@ -15,9 +15,9 @@ class Ingredient(models.Model):
 
 class Recipe(models.Model):
     name = models.CharField(max_length=50)
-    author = models.CharField()
-    created = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
+    author = models.CharField(max_length=50)
+    createdOn = models.DateTimeField(auto_now_add=True)
+    updatedOn = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.name
