@@ -10,4 +10,7 @@
     <ol>{% for ingredient in recipe.ingredients.all %}
 		<li>{{ingredient.ingredient.name}} - {{ingredient.quantity}}</li>
     {% endfor %}</ol>
+	{% for image in recipe.images.all %}
+		<img src="{{ image.image.url }}" alt="{{ image.description }}">
+	{% endfor %}
 	{% endblock %}
