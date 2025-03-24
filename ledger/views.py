@@ -56,7 +56,8 @@ def image_create(request, pk):
             t.description = request.POST.get('description')
             t.recipe = Recipe.objects.get(pk=pk)
             t.save()
-
-        return redirect(reverse('ledger:recipe', args=[pk]))
+            
+            return redirect(reverse('ledger:recipe', args=[pk]))
+    
     ctx = {"recipe": Recipe.objects.get(pk=pk)}
     return render(request, 'ledger/image_add.html', ctx)
