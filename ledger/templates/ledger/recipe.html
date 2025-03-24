@@ -13,5 +13,8 @@
 	{% for image in recipe.images.all %}
 		<img src="{{ image.image.url }}" alt="{{ image.description }}">
 	{% endfor %}
+	<hr>
+	<button><a href="{{ recipe.get_absolute_url }}/add_image">Add Image</a></button>
+	<hr>
 	<button><a href="/recipes/list">Home</a></button>
 	{% endblock %}
